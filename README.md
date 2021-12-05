@@ -1,6 +1,7 @@
 # CCR PT Visualization
 
 This is the documentation and explanation of the uploaded code.
+
 mqttt_get.py is the script to get all the data from the broker server where all the sensors information is being stored.
 
 plotting_data is the script to get live data to analyse the relationship between angle and distance.
