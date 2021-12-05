@@ -1,6 +1,5 @@
 #control only send out one angel per distance - prevent overflow of data, maybe is better
 #only store 1 data get angle, (unqiue)
-#once 180 degree empty data reset!!!
 
 #mqtt connection
 from os import write
