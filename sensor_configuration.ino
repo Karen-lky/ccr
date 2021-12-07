@@ -60,7 +60,7 @@ void setup() {
 
 
 void onConnectionEstablished(){
-  client.publish("rwth/cr/PP/DCcontrol/Validate", "Connection Established");   //Notify on connection established
+  client.publish("rwth/cr/PP/DCcontrol/Validate", "Connection Established");        //Notify on connection established
   
   client.subscribe("rwth/cr/PP/DCcontrol", DC_Motor);                               //Subscribe to the topic
 }
