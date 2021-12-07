@@ -9,6 +9,8 @@ int in1 = D6;                             //DC Motor Parameter, Direction Contro
 int in2 = D7;                             //DC Motor Parameter, Direction Control 2
 
 int pot = A0;
+int deviation = 4;
+
 
 int detectionLimit = 1500;                //Set Detection threshold to minimize errors 
 
@@ -58,7 +60,7 @@ void setup() {
 
 
 void onConnectionEstablished(){
-  client.publish("rwth/cr/esp/PPl/DCcontrol/Validate", "Connection Established");   //Notify on connection established
+  client.publish("rwth/cr/PP/DCcontrol/Validate", "Connection Established");   //Notify on connection established
   
   client.subscribe("rwth/cr/PP/DCcontrol", DC_Motor);                               //Subscribe to the topic
 }
@@ -74,7 +76,12 @@ void DC_Motor(const String & payload){                                          
     int speed = payload.toInt();                                                    //Convert string to integer
 
     int distance = sensor.readRangeSingleMillimeters();                             //Read ToF Sensor, store int under variable
-    int angle = map(analogRead(A0),0,1024,0,180);                                   //Detect angle by reading the potentiometer (TBD)
+    
+    int angle = map(analogRead(A0),535,790,0,180);                                  //Detect angle by reading the potentiometer
+    
+    if(angle <= deviation){angle=0;}                                                //set top/bottom limit by deviation for ensuring full half rotation 
+    else if (angle >= 180-deviation){angle = 180;}
+    else {angle = angle;}
     
     
       if(distance <= 300){                                                          //If too close, slow down the detection (tbd)
@@ -97,7 +104,7 @@ void DC_Motor(const String & payload){                                          
 
      String Payload = Angle + ":S1:" + Distance;                                    //STRING Output format for publishing
       
-     client.publish("rwth/cr/PP/CCR/Sensor0", Payload);                             //Publish payload to MQTT
+     client.publish("rwth/cr/PP/CCR/Sensor1", Payload);                             //Publish payload to MQTT
      Serial.println(Distance);
      
       
