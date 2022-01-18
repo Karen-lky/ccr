@@ -38,7 +38,7 @@ ax.set_zlim3d(-400, 400)
 
 ax.scatter(0, 0, 0,s=90, c='k', marker='h') # Mark Origin for Attachment
 
-colors = ['brown', 'red', 'orange', 'gold']
+colors = ['brown', 'red', 'orange', 'gold', 'yellow', 'lawngreen', 'aquamarine', 'deepskyblue', 'navy', 'b', 'darkviolet', 'magenta']
 
 for i in range(sensor_count):  # Initialize lists based on the sensor count
     globals()['angle%s' % str(i + 1)] = []
