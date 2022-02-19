@@ -10,7 +10,7 @@ The CAD model, Microcontroller script, Python script, and Grasshopper script can
 
 The prototype is designed in a way that it can be fully expanded (or reduced) to serve in different areas of application. CAD Models, microcontroller script and visualization and robot override scripts has been designed & written in a way that any kind of form factor of our prototype is possible to be manufactured just with a change of some basic parameters.
 
-## Cad model
+## CAD model
 
 The CAD Model of the attachment has been designed using module components. The _“.f3d”_ models in the provided folders can be used to create the desired form factor for the attachment. In our prototype you will be seeing it in 196cm attachment diameter with 4x4 sensor configuration and 22° radial offset.
 
