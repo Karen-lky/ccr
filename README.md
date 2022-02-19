@@ -89,7 +89,7 @@ void loop() {
 
 ## Visualization Script
 
-For the visualization and Robot control, a class called “CCRattachment” has been written, which can be initialized by using:
+For the 3D point cloud visualization and Robot control override, a class called “CCRattachment” has been written in python _CCR_EndeffectorAttachment.py_, which can be initialized by using:
 
 ```python
 
@@ -98,7 +98,8 @@ Test1 = CCRAttachment('Emre_0.1', sensor_count=6, sensor_position_offset=22, sen
 ```
 
 
-This class consists of multiple definitions to receive the data through MQTT Client and process it for visualization.
+This class consists of multiple definitions to receive the data through MQTT Client and process it for visualization. (More details on how each definition works can be founf under the comments in the script)
+
 * `def save_MQTTdata (topic, payload)` – Listens to the subscribed topic and discriminates the data by the given topic. If the topic is the same with microcontrollers data publishing topic _rwth/cr/PP/CCR/Attachment1_ each unique ‘angle’ data is saved in a global list for each sensor. Once the angle values reaches 0 or 180, the lists are deleted to save next set of values. This definition also listens to CRC local client to get the current TCP state of the used robot, and saves the Frame JSON data _{"X":0,"Y":0,"Z":0,"A":0,"B":0,"C":0}_ in a global variable to later transform all detected points.
 * `*def get_Points_orient()` – By using given angle and distance values in each sensors list, creates a point in cartesian coordinates (from polar coordinates) and transforms points based on the sensor configuration as well as the state of the robot.
 * `def set_intersectionGeo( min_box=[-1, -1, -1], max_box=[1, 1, 1], det_grnd=True)` – Sets a predefined bounding box in the given environment. The detected points are not considered as “threat” if it falls into given domain, definition of “safe zone”
