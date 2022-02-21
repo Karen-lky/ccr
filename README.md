@@ -123,28 +123,31 @@ _*Direct control of robot through this GH script is not suggested to overwrite t
 
 
 ## ROS package in Google Drive
-This is the ROS package to receive distance sensor information and command from robot via MQTT. Then, those and command will be published in the rviz environment for visualiation. The suppoting package behind is ROS noetic version with python 3 in linux system.
+This is the ROS package to receive distance sensor information and command from robot via MQTT. Then, those and command will be published in the rviz environment for visualiation. The suppoting package behind is ROS noetic version with python 3 in linux system. The code is stored under ` ROS > catkin_ws > src > kuka_moveit > scripts ` and the code explanation is ` README.md.rtf ` in google drive as large amount of file size is difficult to upload in github.
 
 ![ROS_CCR](https://user-images.githubusercontent.com/77464658/154495988-a71871a6-ce80-4e53-900d-33b52ce9c519.png)
 
-
-To run the code for intiating the Rviz environment
+Here are the command line to run in terminal of this file package for different performance:
+* To run the code for intiating the Rviz environment -
 ```
 roslaunch kuka_moveit demo.launch
 ```
 
-To receive MQTT from ToF sensor
+* To receive MQTT from ToF sensor -
 ```
 rosrun kuka_moveit mqtt_get.py
 ```
 
-To visualize the detected objects in Rviz
+* To visualize the detected objects in Rviz -
 ```
 rosrun kuka_moveit detection_ignore.py
 ```
 
-To visualize industrial robotics arm motion in Rviz
+* To visualize industrial robotics arm motion in Rviz -
 ```
 rosrun kuka_moveit motion.py
 ```
+
 **Helpful links to start with ROS: http://wiki.ros.org/ROS/Tutorials
+
+**The ROS package is created with guide of https://ros-planning.github.io/moveit_tutorials/doc/setup_assistant/setup_assistant_tutorial.html and http://wiki.ros.org/kuka_experimental
