@@ -12,11 +12,11 @@ The prototype is designed in a way that it can be fully expanded (or reduced) to
 
 ## CAD model
 
-The CAD Model of the attachment has been designed using module components. The _“.f3d”_ models in the provided folders can be used to create the desired form factor for the attachment. In our prototype you will be seeing it in 196cm attachment diameter with 4x4 sensor configuration and 22° radial offset.
+The CAD Model of the attachment has been designed using module components to visualize our project ideas. The _“.f3d”_ models in the provided folders can be used to create the desired form factor for the attachment. The oscilating gears, worm gears with motors, customized PCB, multiplexer, ToF sensors, and NodeMCU are assembled into the designed casing with covered as following pictures to protect the hardware. In our prototype you will be seeing it in 196cm attachment diameter with 4x4 sensor configuration and 22° radial offset. Lastly, these casing are printed by 3D printing and assembled with the hardware.
 
 ![Cad Modules](https://i.imgur.com/UfWhGP3.png)
 
-_*Custom PCB is designed especially for this prototype, might differ for other designs_
+_**Custom PCB is designed especially for this prototype, might differ for other designs_
 
 _**Motor shaft is a ø6mm brass tube, connection to the “Center Gear” component on Oscillating_Gears.f3z file should be edited in case of the shaft change._
 
@@ -147,4 +147,4 @@ To visualize industrial robotics arm motion in Rviz
 ```
 rosrun kuka_moveit motion.py
 ```
-** Helpful links to start with ROS: http://wiki.ros.org/ROS/Tutorials
+**Helpful links to start with ROS: http://wiki.ros.org/ROS/Tutorials
